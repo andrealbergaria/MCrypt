@@ -6,17 +6,58 @@ RSALIST = "251959084756578934940271832400483985714292821262040320277771378360436
 RSA_2048= int(RSALIST)
 
 #SINCE ITS DIVISIBLE BY 2, IS DIVISIBLE BY 4 , 6 , 8?
+# are: 1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 73, 75, 77, 79, 81, 83, 85, 87, 89, 91, 93, 95, 97, 99.
 #check odd and even
 factors = []
 
-def getFactorsUsingParity(dividend):
+#se é divisivel por 2,
+
+def isEven(number):
+    if number % 2 == 0 :
+        print(str(number) + " is even")
+    else:
+        print(str(number) + " is odd")
+
+isEven(RSA_2048)
+# number is divisble by 2, is divislbe by 2*2,2*3,2*12
+def retractEven(number):
+    factors = []
+    temp = 1
+    while temp <= number:
+        temp = 2*temp
+        factors.append(temp)
+
+    return factors
+
+def getFactorsUsingEvenCondition(dividend):
+    # number is even
+    # even*even ou even*odd
+    while dividend != divisor or len(factors) > 2:
+        factors.append(divisor)
+        divisor += 2
+        dividend = dividend / divisor
+
+   120 = { }
+    return factors
+
+def getFactorsUsingOddCondition(dividend):
     start = process_time()
     factors = []
     print("Started at "+str(start))
 
+    #dividend is odd
     if dividend % 2 != 0:
-        #number is odd
-        #so odd*odd*odd
+        divisor = 3
+        while dividend != divisor or len(factors) > 2:
+            factors.append(divisor)
+            divisor+=2
+            dividend = dividend / divisor
+            #are: 1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 73, 75, 77, 79, 81, 83, 85, 87, 89, 91, 93, 95, 97, 99.
+        return factors
+
+
+
+
 
 def getFactors(dividend):
     start = process_time()
@@ -68,5 +109,5 @@ def getFactors(dividend):
 
 #RSA_2048 = readRSALists()
 key = int(RSA_2048)
-factors = getFactors(key)
+#factors = getFactors(key)
 print(str(factors))
