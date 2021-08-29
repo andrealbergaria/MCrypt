@@ -18,7 +18,7 @@ def isEven(number):
     else:
         print(str(number) + " is odd")
 
-isEven(RSA_2048)
+#isEven(RSA_2048)
 # number is divisble by 2, is divislbe by 2*2,2*3,2*12
 def retractEven(number):
     factors = []
@@ -28,7 +28,10 @@ def retractEven(number):
         factors.append(temp)
 
     return factors
-
+#https://www.quora.com/Are-the-factors-of-an-even-number-always-even
+#Take the even number 6. I has factors of 2 and 3. Three is not even, so the factors of an even number are not always even.
+# does odd functions as odd*odd ?
+# taken above, that's because even*even= even and even*odd=even
 def getFactorsUsingEvenCondition(dividend):
     # number is even
     # even*even ou even*odd
@@ -37,27 +40,8 @@ def getFactorsUsingEvenCondition(dividend):
         divisor += 2
         dividend = dividend / divisor
 
-   120 = { }
+
     return factors
-
-def getFactorsUsingOddCondition(dividend):
-    start = process_time()
-    factors = []
-    print("Started at "+str(start))
-
-    #dividend is odd
-    if dividend % 2 != 0:
-        divisor = 3
-        while dividend != divisor or len(factors) > 2:
-            factors.append(divisor)
-            divisor+=2
-            dividend = dividend / divisor
-            #are: 1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 73, 75, 77, 79, 81, 83, 85, 87, 89, 91, 93, 95, 97, 99.
-        return factors
-
-
-
-
 
 def getFactors(dividend):
     start = process_time()
@@ -108,6 +92,6 @@ def getFactors(dividend):
 
 
 #RSA_2048 = readRSALists()
-key = int(RSA_2048)
+key = int(RSA_2048) # --> is odd
 #factors = getFactors(key)
 print(str(factors))
